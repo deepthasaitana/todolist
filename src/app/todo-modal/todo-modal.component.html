@@ -1,0 +1,65 @@
+<div [ngStyle]="{'background-color':(isDateNotes) ? '#99ee9d' : (isNotesOnly) ? '#f8c38e': (isNotesDateAttach) ? '#afc5f1' : ''}">
+  <div class="style_dialog">
+<div class="style_header">
+    <h2 mat-dialog-title>Add To do Item</h2>
+    <mat-icon *ngIf="isDate && isFile || isDate" aria-hidden="false" aria-label="Example done icon">done</mat-icon>
+</div>
+<mat-dialog-content class="dilog">
+    <mat-radio-group aria-label="Select an option button-group" [(ngModel)]="radioButtonValue"
+        (change)="radioChange($event)">
+        <mat-grid-list cols="2" rowHeight="6:1" style="width: 500px;">
+            <mat-grid-tile>
+                Type : &nbsp;<mat-radio-button value="noteOnly" name="noteOnly" color="primary" [checked]="true">
+                    Note Only</mat-radio-button>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-radio-button value="noteDate" name="noteDate" color="primary">Note + Date
+                </mat-radio-button>
+            </mat-grid-tile>
+        </mat-grid-list>
+        <mat-grid-list cols="1" rowHeight="8:1" style="width: 500px;">
+            <mat-grid-tile>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <mat-radio-button value="noteDateAttachment" name="noteDateAttachment" color="primary">Note + Date +
+                    Attachment
+                </mat-radio-button>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </mat-radio-group>
+
+    <div *ngIf="isNotes" style="margin-top: -30px;">
+        <mat-form-field>
+            <textarea matInput id="inputTextData" placeholder="Your Note goes here..." [formControl]="inputTextData"
+                (change)="onInputTextNote()" rows="3" required>
+                </textarea>
+        </mat-form-field>
+    </div>
+
+    <div *ngIf="isDate">
+        <mat-grid-list cols="2" rowHeight="3:1">
+            <mat-grid-tile  class="gridTile">
+                <mat-form-field *ngIf="isDate">
+                    <mat-label>Select due date</mat-label>
+                    <input type="date" matInput [(ngModel)]="dueDate">
+                </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <input *ngIf="isFile" type="file" (change)="onFileSelected($event)" #fileUpload
+                    class="onlyfile">
+            </mat-grid-tile>
+        </mat-grid-list>
+
+    </div>
+
+
+</mat-dialog-content>
+
+
+<mat-dialog-actions align="end">
+    <button mat-button *ngIf="!isEdiable" mat-dialog-close>Cancel</button>
+    <button mat-button *ngIf="!isEdiable" mat-dialog-close (click)="handleSubmit()">OK</button>
+    <button *ngIf="isEdiable" mat-dialog-close mat-button (click)="handleUpdate($event)">Update</button>
+    <button *ngIf="isEdiable" mat-dialog-close mat-button (click)="handleDelete($event)">Delete</button>
+</mat-dialog-actions>
+</div>
+</div>

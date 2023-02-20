@@ -1,0 +1,68 @@
+.dashboard-view{
+    margin-top: 5%;
+    margin-left: 25%;
+    margin-right: 25%;
+    padding: 10px;
+    width: 50%;
+    height: auto;
+    box-shadow:  1px 2px darkgray;
+    border-radius: 5px;
+    background: #f4f4f4;
+}
+
+
+
+.header{
+    padding: 10px;
+    font-size: 30px;
+    font-family: "Raleway";
+    color: #F97300 !important;
+    text-align: center;
+}
+.addTodoBtn{
+    width: 100%;
+    border: dashed;
+    border-color: rgb(117, 117, 116);
+    background-color: white;
+}
+
+.mat-card{
+    padding: 0px !important;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+.mat-card-title:not(:first-child), .mat-card-subtitle:not(:first-child){
+    margin-top: -15px;
+    height: 15px !important;
+    z-index: 10000000 !important;
+}
+.mat-figure{
+    height: 15px;
+}
+
+.todo_item_style{
+    height: auto;
+    min-height: 15px;
+    max-height: 25px;
+}
+.todo_item{
+    z-index: 100000000 !important;
+}
+
+.attachfileIcon{
+    float:right; 
+    margin-top: 10px; 
+    margin-right: 10px;
+}
+
+.cardtodo{
+    margin-top:5px;
+}
+
+.NotesTodo{
+    font-size: 15px; 
+}
+
+.dateTodo{
+    font-size: 10px; 
+}

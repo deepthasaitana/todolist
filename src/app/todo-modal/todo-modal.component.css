@@ -1,0 +1,32 @@
+.style_header{
+    display:flex;
+    justify-content:space-between;
+}
+.dilog{
+    height: auto;
+    width: 100%;
+}
+
+.button-group{
+    padding-top: 10px;
+}
+
+.mat-dialog-container{
+    width: 500px !important;
+    padding: 5px !important;
+}
+
+.mat-form-field{
+    width: 100%;
+}
+.style_dialog{
+    padding: 20px;
+}
+
+.onlyfile{
+    margin-left: 10px; margin-top: 5px;
+}
+
+.gridTile{
+    margin-left: -10px;
+}

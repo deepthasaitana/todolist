@@ -1,0 +1,33 @@
+<div class="bg">
+<div class="dashboard-view ">
+    <div class="header">
+        <h1>To Do List</h1>
+    </div>
+    <div>
+        <mat-card *ngFor="let todo of todoData; let indexOfelement=index;"  class="cardtodo"
+            (click)="handleEdit(todo, indexOfelement)"
+            [ngStyle]="{'background-color': (todo.notes.length > 0 && todo.dueDate == null && todo.file=== '') ? '#f8c38e' :(todo.notes.length > 0 && todo.dueDate !== null && todo.file=== '')? '#99ee9d' : (todo.notes.length > 0 && todo.dueDate !== null && todo.file.length > 0)? '#afc5f1':'#fff'}">            
+            <mat-grid-list cols="2" rowHeight="5:1">
+                <div class="todo_item_style">
+                    <div class="todo_item">
+                      <mat-grid-tile>
+                        <mat-card-subtitle  class="dateTodo">{{todo.dueDate}}</mat-card-subtitle>
+                        <mat-card-title  class="NotesTodo">{{todo.notes}}</mat-card-title>
+                      </mat-grid-tile>
+                    </div>
+                <mat-grid-tile>
+                    <mat-icon *ngIf="todo.file.length > 0" 
+                        aria-hidden="false" aria-label="Example attach_file icon"
+                        class="attachfileIcon">
+                        attach_file</mat-icon>
+                </mat-grid-tile>
+                </div>
+            </mat-grid-list>
+        </mat-card>
+    </div>
+    <br>
+    <div>
+      <button mat-button class="addTodoBtn" (click)="handleAddToDo()">Add To-do</button>
+    </div>
+</div>
+</div>
